@@ -1,24 +1,12 @@
 def increase_or_decrease(arr):
-    increase = sorted(arr)
-    decrease = sorted(arr)[::-1]
-
-    inc_dec = arr == increase or arr == decrease
-
-    return inc_dec
+    return (sorted(arr) == arr or sorted(arr)[::-1] == arr)
 
 
 def least_one_most_three(arr):
-    p1 = 0
-    p2 = 1
-    ok = True
     for i in range(len(arr)-1):
-        if not 1 <= abs(arr[p1] - arr[p2]) <= 3:
-            ok = False
-            break
-        p1 += 1
-        p2 += 1
-
-    return ok
+        if not (1 <= abs(arr[i] - arr[i+1]) <= 3):
+            return False
+    return True
 
 
 _input = \
